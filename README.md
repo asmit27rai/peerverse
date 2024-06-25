@@ -14,8 +14,7 @@ PeerVerse connects student communities through an interactive platform designed 
 
 - **Backend**: Django, Python
 - **Frontend**: HTML/CSS, Bootstrap
-- **Database**: SQLite (for development), PostgreSQL (for production)
-- **Deployment**: Heroku
+- **Database**: SQLite (for development)
 
 ## Getting Started
 
