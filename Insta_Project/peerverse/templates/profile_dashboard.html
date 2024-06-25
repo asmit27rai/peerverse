@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">{{ user.username }}'s Dashboard</h1>
+    <div class="card profile-card shadow-lg border-0">
+        <div class="card-body">
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center">
+                    <div class="profile-image-container">
+                        <img src="{{ user.profile.image.url }}" alt="Profile Picture" class="img-fluid rounded-circle profile-image">
+                    </div>
+                </div>
+                <div class="col-md-8 ">
+                    <h3 class="profile-username text-white">{{ user.username }}</h3>
+                    <p class="profile-email text-white"><i class="bi bi-envelope-fill"></i> {{ user.email }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

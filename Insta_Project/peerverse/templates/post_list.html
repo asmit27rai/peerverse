@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+{% load tz %}
+
+{% block content %}
+<h1 class="text-center my-4">We At <i>PeerVerse</i> Connect Student Community To Each Other....</h1>
+{% if user.is_authenticated %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form class="form-inline" method="GET" action="{% url 'post_list' %}">
+                <div class="input-group">
+                    <input class="form-control" type="search" name="q" placeholder="Search by username" aria-label="Search" value="{{ query }}">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-success mx-2" type="submit">Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% if posts %}
+        {% for post in posts %}
+        <div class="row justify-content-center mt-4">
+            <div class="col-lg-6 col-md-8">
+                <div class="card shadow-lg border-0">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-end position-relative mb-3">
+                            {% if post.is_important or post.user.is_superuser %}
+                                <div style="position: absolute; top: 0; right: 0; z-index: 999;">
+                                    <span class="text-warning">&#9733;</span>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <h5 class="card-title text-center">
+                            <a href="{% url 'user_dashboard' post.user.username %}" class="username-link">{{ post.user.username }}</a>
+                        </h5>
+                        {% if post.photo %}
+                            <img src="{{ post.photo.url }}" class="card-img-top" alt="Post Image">
+                        {% endif %}
+                        <p class="card-text">{{ post.text }}</p>
+                        <small>{{ post.created_at|timezone:"Asia/Kolkata"|date:"F d, Y H:i A" }}</small>
+                        {% if post.file %}
+                        <div class="mt-3 text-center">
+                            <a href="{% url 'download_file' post.id %}" class="btn btn-outline-primary">Download File</a>
+                        </div>
+                        {% endif %}
+                        {% if post.user == user %}
+                        <div class="mt-3 text-center">
+                            <a href="{% url 'post_edit' post.id %}" class="btn btn-outline-success mr-2">Edit</a>
+                            <a href="{% url 'post_delete' post.id %}" class="btn btn-outline-danger">Delete</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6 text-center">
+                <p>{% if query %}No posts found for "{{ query }}"{% else %}No posts available.{% endif %}</p>
+            </div>
+        </div>
+    {% endif %}
+</div>
+
+<a href="{% url 'post_generate' %}" class="btn btn-outline-primary btn-fixed-bottom-right">Post...</a>
+
+{% else %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow rounded-lg border-0 text-center">
+                <div class="card-body">
+                    <h2 class="card-title mb-3">Join Our Community</h2>
+                    <p class="card-text">
+                        For The Best Output In Academics And Be Part Of The Education Community
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endif %}
+
+{% endblock %}
