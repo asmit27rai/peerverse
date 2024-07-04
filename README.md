@@ -25,4 +25,9 @@ PeerVerse connects student communities through an interactive platform designed 
 
 
 ## Some ScreenShots....
-1.
+1. ![Screenshot 2024-07-04 171624](https://github.com/asmit27rai/peerverse/assets/146473475/0fd6e2a5-f3f7-4e31-961a-4d7cdf4f6812)
+2. ![Screenshot 2024-07-04 171713](https://github.com/asmit27rai/peerverse/assets/146473475/c0b3844d-dced-407a-bb33-f0e07887a5d1)
+3. ![Screenshot 2024-07-04 171730](https://github.com/asmit27rai/peerverse/assets/146473475/f2d2f755-cfdc-4330-8d6a-27d49fb5ec38)
+4. ![Screenshot 2024-07-04 171839](https://github.com/asmit27rai/peerverse/assets/146473475/97ded882-352c-4d66-ac51-aa56202a376b)
+5. ![Screenshot 2024-07-04 171854](https://github.com/asmit27rai/peerverse/assets/146473475/cba0d93c-784d-47eb-9f92-0269d0521451)
+
